@@ -1,0 +1,34 @@
+{
+  "product": "FLX by MP-audio",
+  "version": "0.1.0-development",
+  "dsp": {
+    "status": "passed",
+    "scenarios": 22,
+    "compiler": "g++ C++17",
+    "warnings": "-Wall -Wextra -Werror",
+    "sanitizers": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer"
+    ],
+    "leak_detection": "Default test script setting detect_leaks=1 completed without a reported sanitizer failure in this preparation run."
+  },
+  "swift_syntax": {
+    "status": "passed",
+    "files": 4,
+    "tool": "tree-sitter-swift",
+    "is_typecheck": false
+  },
+  "project_references": "passed",
+  "plist_and_scheme_parsing": "passed",
+  "ios_compilation": "not run: GitHub Actions refused to start jobs because account payments failed or spending limit needs increasing; local environment is Linux without Xcode",
+  "simulator_and_device_tests": "not run",
+  "signing": "not configured",
+  "deployment": "not performed",
+  "feature_completeness": "partial; see Docs/FEATURE_STATUS.md",
+  "preparation": {
+    "source_archive_checksums": "all original entries verified before changes",
+    "automatic_signing": "enabled for Debug and Release; Apple team not selected",
+    "changes": "Build/archive scripts preserve existing Xcode signing settings instead of regenerating the project on every invocation"
+  },
+  "remote_run": "https://github.com/sroohi/FLX/actions/runs/40449821523"
+}

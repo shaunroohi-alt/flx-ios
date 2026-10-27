@@ -1,0 +1,41 @@
+name: Validate FLX iOS
+on:
+  workflow_dispatch:
+  push:
+    paths: ['iOS/**', '.github/workflows/ios-build.yml']
+  pull_request:
+    paths: ['iOS/**', '.github/workflows/ios-build.yml']
+permissions:
+  contents: read
+jobs:
+  dsp:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: iOS
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash Scripts/test-dsp.sh
+  ios:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: iOS
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build iPhone and iPad simulator application
+        run: bash Scripts/build-ios.sh
+      - name: Compile for physical iOS devices without signing
+        run: |
+          xcodebuild -project FLX.xcodeproj -scheme FLX -configuration Debug \
+            -destination 'generic/platform=iOS' -derivedDataPath .build/DeviceData \
+            CODE_SIGNING_ALLOWED=NO build
+      - name: Package simulator application
+        run: |
+          mkdir -p .build/artifacts
+          ditto -c -k --sequesterRsrc --keepParent .build/DerivedData/Build/Products/Debug-iphonesimulator/FLX.app .build/artifacts/FLX-simulator.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FLX-unsigned-simulator-build
+          path: iOS/.build/artifacts/FLX-simulator.zip

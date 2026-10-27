@@ -1,0 +1,40 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1; classes = {}; objectVersion = 56;
+ objects = {
+  71356E8ED95920C4D8A5FA31 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FLX/Audio/AudioHost.swift"; sourceTree = "<group>"; };
+  1783CF1E7C162CB66F9B29D5 = { isa = PBXBuildFile; fileRef = 71356E8ED95920C4D8A5FA31; };
+  EF9B2BF7034ACF8098530998 = { isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "FLX/Audio/FLXKernel.cpp"; sourceTree = "<group>"; };
+  327C46C2B16907E6CCF37D49 = { isa = PBXBuildFile; fileRef = EF9B2BF7034ACF8098530998; };
+  E6EE5EDB6E65B5AA9E682E66 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FLX/DJSession.swift"; sourceTree = "<group>"; };
+  45FA617A997BD41298C9BF12 = { isa = PBXBuildFile; fileRef = E6EE5EDB6E65B5AA9E682E66; };
+  91DE48C3429D21114E54F33D = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FLX/FLXApp.swift"; sourceTree = "<group>"; };
+  97A99FD66A9638FC77E3F153 = { isa = PBXBuildFile; fileRef = 91DE48C3429D21114E54F33D; };
+  A7470C25AB9B17EBD48C4DB8 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FLX/UI/ConsoleView.swift"; sourceTree = "<group>"; };
+  AC25C016A9F0583AB6B1DF69 = { isa = PBXBuildFile; fileRef = A7470C25AB9B17EBD48C4DB8; };
+  E27F61A8895E7AEC9019C8A9 = { isa = PBXFileReference; lastKnownFileType = text; path = "FLX/Resources/Reference.txt"; sourceTree = "<group>"; };
+  0E0649E8C7405541ACCFC536 = { isa = PBXBuildFile; fileRef = E27F61A8895E7AEC9019C8A9; };
+  1A7CBEA71E70560A2A76EEFA = { isa = PBXFileReference; lastKnownFileType = text.xml; path = "FLX/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+  95AF3C77CEBE78072BE88796 = { isa = PBXBuildFile; fileRef = 1A7CBEA71E70560A2A76EEFA; };
+  F18F60B3BA5F3671AF65F2BA = { isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "FLX/Assets.xcassets"; sourceTree = "<group>"; };
+  D1C46E8737F97F7EC4511FC1 = { isa = PBXBuildFile; fileRef = F18F60B3BA5F3671AF65F2BA; };
+  C2930F6E6A8DD1C87C9CB59D = { isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FLX/Audio/FLXKernel.h"; sourceTree = "<group>"; };
+  E8A83C564AC4DC7304A38B71 = { isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FLX/FLX-Bridging-Header.h"; sourceTree = "<group>"; };
+  4E9C42961474C76876A81347 = { isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FLX/Info.plist"; sourceTree = "<group>"; };
+  A8792157CB4F27FB949C035F = { isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+  0A3E27B8CA818264D75C8D81 = { isa = PBXGroup; children = (A8792157CB4F27FB949C035F,); name = Products; sourceTree = "<group>"; };
+  AD936FCBED631FA67E05C3EA = { isa = PBXGroup; children = (71356E8ED95920C4D8A5FA31, EF9B2BF7034ACF8098530998, E6EE5EDB6E65B5AA9E682E66, 91DE48C3429D21114E54F33D, A7470C25AB9B17EBD48C4DB8, E27F61A8895E7AEC9019C8A9, 1A7CBEA71E70560A2A76EEFA, F18F60B3BA5F3671AF65F2BA, C2930F6E6A8DD1C87C9CB59D, E8A83C564AC4DC7304A38B71, 4E9C42961474C76876A81347, 0A3E27B8CA818264D75C8D81,); sourceTree = "<group>"; };
+  878A52FC5FF6A57D50B7B870 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (1783CF1E7C162CB66F9B29D5, 327C46C2B16907E6CCF37D49, 45FA617A997BD41298C9BF12, 97A99FD66A9638FC77E3F153, AC25C016A9F0583AB6B1DF69,); runOnlyForDeploymentPostprocessing = 0; };
+  41D311A605520FC7B8B9A980 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (0E0649E8C7405541ACCFC536, 95AF3C77CEBE78072BE88796, D1C46E8737F97F7EC4511FC1,); runOnlyForDeploymentPostprocessing = 0; };
+  E2AA269EB967A8853A258BFA = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+  2B23A31EEC75B029432F2445 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = "YES"; CLANG_ENABLE_OBJC_ARC = "YES"; CLANG_CXX_LANGUAGE_STANDARD = "c++17"; CLANG_CXX_LIBRARY = "libc++"; IPHONEOS_DEPLOYMENT_TARGET = "17.0"; SDKROOT = "iphoneos"; SWIFT_VERSION = "5.0"; GCC_WARN_64_TO_32_BIT_CONVERSION = "YES"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; GCC_OPTIMIZATION_LEVEL = "0"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG"; }; name = Debug; };
+  07CA1E69F6068DEA30A4DA6B = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = "YES"; CLANG_ENABLE_OBJC_ARC = "YES"; CLANG_CXX_LANGUAGE_STANDARD = "c++17"; CLANG_CXX_LIBRARY = "libc++"; IPHONEOS_DEPLOYMENT_TARGET = "17.0"; SDKROOT = "iphoneos"; SWIFT_VERSION = "5.0"; GCC_WARN_64_TO_32_BIT_CONVERSION = "YES"; SWIFT_OPTIMIZATION_LEVEL = "-O"; GCC_OPTIMIZATION_LEVEL = "3"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+  F905B102B4F13BD6617D8EB3 = { isa = XCConfigurationList; buildConfigurations = (2B23A31EEC75B029432F2445, 07CA1E69F6068DEA30A4DA6B,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+  EDDA600A3F771F810A8065C9 = { isa = XCBuildConfiguration; buildSettings = { PRODUCT_NAME = "FLX"; PRODUCT_BUNDLE_IDENTIFIER = "com.mpaudio.flx"; INFOPLIST_FILE = "FLX/Info.plist"; GENERATE_INFOPLIST_FILE = "NO"; SWIFT_OBJC_BRIDGING_HEADER = "FLX/FLX-Bridging-Header.h"; TARGETED_DEVICE_FAMILY = "1,2"; CODE_SIGN_STYLE = "Automatic"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = "NO"; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = "NO"; ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon"; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; GCC_OPTIMIZATION_LEVEL = "0"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG"; }; name = Debug; };
+  594BCDCC96599D88EF772A08 = { isa = XCBuildConfiguration; buildSettings = { PRODUCT_NAME = "FLX"; PRODUCT_BUNDLE_IDENTIFIER = "com.mpaudio.flx"; INFOPLIST_FILE = "FLX/Info.plist"; GENERATE_INFOPLIST_FILE = "NO"; SWIFT_OBJC_BRIDGING_HEADER = "FLX/FLX-Bridging-Header.h"; TARGETED_DEVICE_FAMILY = "1,2"; CODE_SIGN_STYLE = "Automatic"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = "NO"; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = "NO"; ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon"; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; SWIFT_OPTIMIZATION_LEVEL = "-O"; GCC_OPTIMIZATION_LEVEL = "3"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+  CE4CD5ACDBC4A8D938AD23C0 = { isa = XCConfigurationList; buildConfigurations = (EDDA600A3F771F810A8065C9, 594BCDCC96599D88EF772A08,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+  34A04005BCAF206EEC990BD9 = { isa = PBXNativeTarget; buildConfigurationList = CE4CD5ACDBC4A8D938AD23C0; buildPhases = (878A52FC5FF6A57D50B7B870, E2AA269EB967A8853A258BFA, 41D311A605520FC7B8B9A980,); buildRules = (); dependencies = (); name = FLX; productName = FLX; productReference = A8792157CB4F27FB949C035F; productType = "com.apple.product-type.application"; };
+  244210E48437B6556980A702 = { isa = PBXProject; attributes = { LastUpgradeCheck = 1600; TargetAttributes = { 34A04005BCAF206EEC990BD9 = { CreatedOnToolsVersion = 16.0; }; }; }; buildConfigurationList = F905B102B4F13BD6617D8EB3; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = AD936FCBED631FA67E05C3EA; productRefGroup = 0A3E27B8CA818264D75C8D81; projectDirPath = ""; projectRoot = ""; targets = (34A04005BCAF206EEC990BD9,); };
+ };
+ rootObject = 244210E48437B6556980A702;
+}

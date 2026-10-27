@@ -1,0 +1,20 @@
+name: Validate FLX native source
+on:
+  workflow_dispatch:
+  push:
+    paths: ['FLX/**', 'Scripts/**', 'Tests/**', '.github/workflows/ios-build.yml']
+jobs:
+  dsp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash Scripts/test-dsp.sh
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash Scripts/build-ios.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FLX-unsigned-simulator-build
+          path: .build/DerivedData/Build/Products/Debug-iphonesimulator/FLX.app

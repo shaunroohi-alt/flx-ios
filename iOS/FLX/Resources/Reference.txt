@@ -1,0 +1,1176 @@
+        DDJ-FLX10
+        TECHNICAL REFERENCE COMPENDIUM
+
+
+
+
+        4-channel DJ controller for rekordbox & Serato DJ Pro
+        Pioneer DJ / AlphaTheta
+
+        Compiled from                                                           Contents
+        Instruction Manual DRI1822-D (183 pp, EN, rev. 23 Oct                   Specifications · I/O · Control properties (rekordbox /
+        2024)                                                                   Serato) · On Jog Display · Pad modes · Effects · Settings
+        List of MIDI Messages E1 (7 pp)                                         & defaults · Events & triggers · Workflows · Complete
+                                                                                MIDI map (IN + OUT) · Signal flow · Troubleshooting
+
+
+        Restructured reference built from AlphaTheta's official documentation. Not an official AlphaTheta publication. Manual
+        page numbers are cited as [p.N] for cross-checking. Specs and firmware behaviour are subject to change — verify
+        against the latest docs at support.alphatheta.com.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                               1 / 301
+Contents
+1. Specifications                         10. Settings & properties (rekordbox / Utilities / Setting
+2. Hardware layout, I/O & connections         Utility)
+3. Control properties — Browse section    11. Events, triggers & automatic behaviours
+4. Control properties — Deck section      12. Workflows
+5. Control properties — Mixer section     13. MIDI map — conventions & channels
+6. Control properties — Effects section   14. MIDI map — Browser, Deck, Mixer, Effects
+7. On Jog Display                         15. MIDI map — Performance Pads & pad-mode buttons
+8. Performance Pad modes                  16. MIDI-OUT (feedback / display control)
+9. Effects reference                      17. Signal flow
+                                          18. Troubleshooting
+                                          19. Source notes & discrepancies
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                               2
+                                                                                                       2 / 30
+1 · Specifications
+  In the box                                                                 Software
+  AC adapter · power cord · USB cable · Quick Start Guide ·                  rekordbox (Performance mode via Hardware Unlock — no
+  Precautions for Use · Serato Pitch 'n Time DJ voucher ·                    subscription required) and Serato DJ Pro (unlocked by the
+  warranty (some regions). Voucher codes can't be reissued.                  unit). Any other MIDI-capable DJ app via the MIDI map in §13–
+  [p.5]                                                                      16. Windows needs the dedicated ASIO driver; Mac needs
+                                                                             only the Setting Utility. [p.6–9, 179]
+
+ Group            Item                          Value
+ AC               Power requirements            AC 100–240 V, 50/60 Hz
+ adapter
+                  Rated current                 0.9 A
+                  Rated output                  DC 12 V, 3 A
+ General          Power consumption             DC 12 V, 1 800 mA
+                  Power consumption (off)       0.2 W
+                  Weight                        6.7 kg / 14.8 lb
+                  Max. dimensions (W×D×H)       716 × 400.3 × 73.4 mm / 28.2 × 15.8 × 2.9 in
+                  Operating temperature         +5 °C – +35 °C (+41 °F – +95 °F)
+                  Operating humidity            5 % – 85 % (no condensation)
+ Audio            Sampling rate                 44.1 kHz
+                  A/D, D/A converters           24 bit
+                  Frequency response (USB,      20 Hz – 20 kHz
+                  LINE, MIC1, MIC2)
+                  S/N ratio (rated out, A-      USB 110 dB · LINE 94 dB · PHONO 83 dB · MIC1 81 dB · MIC2 81 dB
+                  weighted)
+                  THD (20 Hz–20 kHz BW)         USB 0.002 % · LINE 0.007 % · PHONO 0.025 %
+                  Standard input level /        LINE −12 dBu / 47 kΩ · PHONO −52 dBu / 47 kΩ · MIC1 −57 dBu / 3 kΩ · MIC2 −57 dBu / 3 kΩ
+                  impedance
+                  Standard output level / load / MASTER 1 +6 dBu / 10 kΩ / ≤330 Ω · MASTER 2 +2 dBu / 10 kΩ / ≤750 Ω · BOOTH +6 dBu / 10 kΩ /
+                  output Z                       ≤900 Ω · PHONES +8 dBu / 32 Ω / ≤10 Ω
+                  Rated output level / load     MASTER 1 +25 dBu / 10 kΩ · MASTER 2 +21 dBu / 10 kΩ · BOOTH +25 dBu / 10 kΩ
+                  Crosstalk                     LINE 88 dB · PHONO 77 dB
+                  Channel EQ                    HI −26 to +6 dB (20 kHz) · MID −26 to +6 dB (1 kHz) · LOW −26 to +6 dB (20 Hz)
+                  Mic EQ                        HI −12 to +12 dB (10 kHz) · LOW −12 to +12 dB (100 Hz)
+ DMX              DMX channel                   1 universe (512 ch)
+ Terminals        LINE inputs                   RCA × 2 sets (CH1, CH2)
+                  LINE/PHONO inputs             RCA × 2 sets (CH3, CH4)
+                  MIC inputs                    MIC 1: XLR / ¼″ TRS combo × 1 · MIC 2: ¼″ TRS × 1
+                  MASTER 1 out                  XLR (balanced) × 1
+                  MASTER 2 out                  RCA × 1
+                  BOOTH out                     ¼″ TRS (balanced) × 1
+                  PHONES out                    ¼″ stereo × 1, 3.5 mm stereo mini × 1 (min. 32 Ω headphones)
+                  USB                           USB Type-C × 2 (labelled USB A / USB B — two computers)
+                  DMX                           XLR 3-pin × 1
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                   3
+                                                                                                                                           3 / 30
+ Group            Item            Value
+ EU PSU           Model / maker   UNI336-1230 · AlphaTheta EMEA Ltd
+                  Electrical      In AC 100–240 V 50/60 Hz · Out DC 12.0 V 3.0 A 36.0 W · avg. efficiency 88.7 % · 10 % load 84.9 %
+                                  · no-load 0.04 W
+
+Source: manual pp.175–178.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                       4
+                                                                                                                                4 / 30
+2 · Hardware layout, I/O & connections
+Top panel zones: Browse (centre top), Deck sections (left = decks 1/3, right = decks 2/4), Mixer (centre), Effects (centre,
+above/beside mixer). [p.10]
+
+Rear panel
+ #     Terminal / control       Properties & rules
+ 1     Kensington slot          Cable lock.
+ 2     MASTER 1 (XLR,           To amp/powered speakers. Use balanced only — XLR→RCA adapters degrade sound/add noise. Never connect
+       balanced)                phantom-power sources; don't insert other power plugs.
+ 3     MASTER 2 (RCA)           Unbalanced master output (manual text says 'balanced input' on p.58 — it is the unbalanced feed; see §19).
+ 4     BOOTH (¼″ TRS,           Booth monitor. Unbalanced connection degrades sound.
+       balanced)
+ 5     SIGNAL GND               Turntable ground wire.
+ 6     LINE/PHONO switch        LINE for multi players; PHONO for MM-cartridge turntables.
+       (CH3/CH4)
+ 7     LINE/PHONO inputs        Set top-panel [A, PHONO/LINE, B] to PHONO/LINE first.
+       (CH3/CH4)
+ 8     LINE inputs (CH1/CH2)    Line-level only. Set top-panel [A, LINE, B] to LINE first.
+ 9     DMX out                  rekordbox Lighting mode / Performance-mode lighting sync only.
+ 10 USB B (Type-C)              Computer 2. Type-C host: supplied cable or USB 2.0 cable. Type-A host: certified cable ≤3 m.
+ 11 USB A (Type-C)              Computer 1. Same cable rules. Hubs: only those recommended by the computer maker.
+ 12 MIC 2                       ¼″ TRS.
+ 13 MIC 1                       XLR/TRS combo.
+ 14 Power switch
+ 15 DC IN                       Supplied AC adapter only; connect last.
+ 16 Cord hook                   Prevents accidental disconnect (sound stops if pulled). Don't bend the cable base.
+
+Front panel
+PHONES: ¼″ stereo + 3.5 mm mini. Headphones below 32 Ω won't work.
+
+Connection order (manual p.66)
+ 1. Headphones → front PHONES (¼″ or 3.5 mm, ≥32 Ω).
+ 2. Amplifier/speakers → MASTER 1 (XLR) or MASTER 2 (RCA); booth monitor → BOOTH; multi player → CH3/CH4 with rear
+    LINE/PHONO switch set.
+ 3. Unit → computer via USB.
+ 4. Power on computer.
+ 5. Connect AC adapter.
+ 6. Press rear power switch (Windows may show "preparing device" → wait for "ready").
+ 7. Power on amps/speakers and any external sources last.
+Rule: unit off and unplugged while connecting; power cord in only after everything else is cabled.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                     5
+                                                                                                                                             5 / 30
+3 · Control properties — Browse section
+ Control / gesture              rekordbox                                                   Serato DJ Pro
+ Rotary selector — turn         Move cursor                                                 Move cursor in library / crates
+ Rotary — [SHIFT]+turn          Zoom enlarged waveform (right = in)                         Zoom detailed waveform on On Jog Display
+ Rotary — press                 Track: load to deck · Playlist: jump to track list · Folder: Track: load · Library/crates: toggle panel focus
+                                open
+ Rotary — press twice           Instant Doubles (copy playing deck incl. position)          Instant Doubles
+ BACK — press                   Toggle tree view ⇄ track list (⇄ playlist palette if        Toggle library ⇄ crates
+                                shown)
+ BACK — hold                    —                                                           Enter Utilities mode (§10)
+ BACK — [SHIFT]+press           Show/hide playlist palette                                  Load track to PREPARE panel
+ VIEW — press                   Shrink decks / enlarge browser (toggle)                     Change screen layout
+ VIEW — hold                    Add/remove selected track to Tag List                       —
+ VIEW — [SHIFT]+press           Jump to Related Tracks                                      Cycle panel display
+
+Source: pp.11–13.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                        6
+                                                                                                                                                6 / 30
+4 · Control properties — Deck section
+Numbers match the manual's deck diagram. Mute vs Solo for ACTIVE PART in rekordbox: Preferences › Extensions › TRACK
+SEPARATION › ACTIVE PART setting.
+ # Control                      rekordbox                                                    Serato DJ Pro
+ 1 CUE/LOOP CALL ◀              Call previous cue/loop · SHIFT: save cue/loop point          Select loop slot · SHIFT: lock loop slot
+ 2 CUE/LOOP CALL ▶              Call next cue/loop · SHIFT: delete cue/loop point            Select loop slot · SHIFT: delete loop slot
+ 3 MIX POINT SELECT ◀           Pick mix point (Hot Cue/cue) on deck being mixed ·           Key down (semitone)
+                                SHIFT: cancel Mix Point Link
+ 4 MIX POINT SELECT ▶           Pick mix point · SHIFT: select deck to be mixed (Mix         Key up · SHIFT: select other deck shown in Waveform
+                                Point Link)                                                  mode
+ 5 MIX POINT LINK               Open Mix Point Link screen · SHIFT: Silent (mute until       Key Lock on/off
+                                mix point)
+ 6 QUANTIZE                     Quantize on/off · cancels Off mode (left deck) · SHIFT:      Same
+                                Tap tempo
+ 7 SLIP                         Slip on/off · SHIFT: Vinyl mode on/off                       Same
+ 8 JOG FEEL                     Jog weight (CW = heavier)                                    Same
+ 9 BEAT SYNC                    Sync tempo+grid to master · press again: cancel · hold Sync · SHIFT: cancel sync
+                                during sync: Sync Rate (×1, ×2, ×½) · SHIFT: set as
+                                master
+ 10 TEMPO slider                Playback speed                                               Same
+ 11 KEY SYNC                    Match key to other deck · SHIFT: reset to original key       Same
+ 12 TEMPO RESET                 Return to original speed regardless of slider · SHIFT:       SHIFT: range ±8 → ±16 → ±50 %
+                                range ±6 → ±10 → ±16 → WIDE
+ 13 HOT CUE mode                Hot Cue · SHIFT: Keyboard                                    Hot Cue · hold: Saved Flip · SHIFT: Pitch Play
+ 14 PAD FX1 mode                Pad FX 1 · SHIFT: Pad FX 2                                   Pad FX · SHIFT: Roll
+ 15 BEAT JUMP mode              Beat Jump · SHIFT: Beat Loop                                 Beat Jump · SHIFT: Auto Loop
+ 16 SAMPLER mode                Sampler · SHIFT: Key Shift                                   Sampler · SHIFT: Key Shift
+ 17 PAGE ◀ / ▶                  Change pad page · hold: show pad functions on jog ·          Adjust pad-mode parameter (press or SHIFT+press) ·
+                                SHIFT: switch jog display mode                               hold: show pad functions · SHIFT+hold: switch jog
+                                                                                             display
+ 18 Performance Pads            Trigger current pad mode (§8)                                Same
+ 19 PLAY/PAUSE                  Play/pause                                                   Play/pause · SHIFT: Stutter (play from temp cue)
+ 20 CUE                         Paused: set cue · playing: Back Cue · hold after return: Same
+                                Cue Point Sampler · SHIFT: jump to track start
+ 21 4 BEAT JUMP ◀/▶             Jump 4 beats · hold: fast search · SHIFT: jump 16 beats Same
+ 22 SHIFT                       Modifier · double-press: toggle Digital Marker on jog        Same
+                                display
+ 23 On Jog Display              See §7                                                       See §7
+ 24 Jog wheel                   Top (Vinyl on): scratch · side or top (Vinyl off): pitch     Same; BEAT JUMP+top = Skip mode
+                                bend · SHIFT+top: beatgrid interval · SHIFT+side: slide
+                                beatgrid · 4 BEAT JUMP + top: fast search
+ 25 DECK SELECT                 Switch deck 1⇄3 / 2⇄4 · SHIFT: Dual Deck mode                Same
+ 26 SLIP REVERSE                Hold: reverse with slip (auto-cancels after 8 beats) ·       Same
+                                SHIFT: latching reverse
+ 27 LOOP IN, 1/2X               Set loop in · in loop: halve · SHIFT (in loop): adjust in-   Same
+                                point with jog
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                        7
+                                                                                                                                                7 / 30
+ # Control                      rekordbox                                               Serato DJ Pro
+ 28 LOOP OUT, 2X                Set loop out & start loop · in loop: double · SHIFT:    Same
+                                reloop · SHIFT (in loop): adjust out-point with jog
+ 29 4 BEAT/EXIT                 4-beat auto loop · in loop: exit · SHIFT: Active Loop   Same
+                                toggle
+ 30 ACTIVE PART DRUMS           Mute (or Solo, per prefs) Drums · SHIFT×2: Part Instant Mute Drums stem · SHIFT×2: Part Instant Doubles
+                                Doubles (this deck plays drums only, other mutes
+                                drums)
+ 31 ACTIVE PART VOCAL           Mute/Solo Vocal · SHIFT×2: Part Instant Doubles         Mute Vocal stem · SHIFT×2: Part Instant Doubles
+ 32 ACTIVE PART INST            Mute/Solo INST · SHIFT×2: Part Instant Doubles          Mute Bass+Melody stems · SHIFT×2: Part Instant
+                                                                                        Doubles
+
+Source: pp.14–32.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                  8
+                                                                                                                                          8 / 30
+5 · Control properties — Mixer section
+ # Control                      Property / behaviour
+ 1 A, PHONO/LINE, B             Source: deck A (PC-A), deck B (PC-B), or external PHONO/LINE input
+ (CH3/4)
+ 2 A, LINE, B (CH1/2)           Source: PC-A, PC-B, or external LINE input
+ 3 MASTER LEVEL                 Master output volume
+ 4 BOOTH LEVEL                  Booth output volume
+ 5 CLIP indicator               Slow flash = just before distortion · fast flash = distorting
+ 6 Master level meter           Master output level
+ 7 TRIM                         Channel gain (aim for orange at loudest peaks)
+ 8 Channel level meter          Pre-fader channel level
+ 9 EQ HI/MID/LOW                EQ mode: ±freq bands (−26 to +6 dB). Part ISO mode: stem volume. rekordbox default: HI=INST, MID=Vocal,
+                                LOW=Drums (change in Preferences › Extensions › TRACK SEPARATION › Layout). Serato: HI=Vocal,
+                                MID=Bass+Melody, LOW=Drums
+ 10 Headphones CUE              Master to headphones
+ (master)
+ 11 Headphones CUE              Channel to headphones · SHIFT: toggle EQ mode ⇄ Part ISO mode
+ (channel)
+ 12 Channel faders              Channel volume (SHIFT + move = Fader Start, if enabled)
+ 13 Crossfader assign           A (left) · B (right) · THRU (bypass crossfader)
+ 14 Crossfader                  Blend A/B sides (SHIFT + move = Crossfader Start). Curve and cut lag configurable
+ 15 HEADPHONES                  Phones volume
+ LEVEL
+ 16 HEADPHONES MIX              Cue ⇄ master blend in phones
+ 17 SAMPLER VOL                 Sampler volume
+ 18 SAMPLER CUE                 Sampler to headphones (Serato: Sample Player Output Select = A)
+ 19 MIC                         ON = indicator lit · TALKOVER = indicator flashes, ducks music
+ OFF/ON/TALKOVER
+ 20 MIC indicator               Mic state
+ 21 MIC EQ HI/LOW               HI ±12 dB @10 kHz · LOW ±12 dB @100 Hz (shared for MIC1/2)
+ 22 MIC2 LEVEL                  Mic 2 volume
+ 23 MIC1 LEVEL                  Mic 1 volume
+
+  Don't pull fader/crossfader caps off by force — they can break. [p.53]
+Source: pp.50–53. The 4-channel mixer works standalone (no computer) for external inputs.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                  9
+                                                                                                                                          9 / 30
+6 · Control properties — Effects section
+ # Control                              Property / behaviour
+ 1 FX PART SELECT                       Choose stems that Beat FX / Sound Color FX (and Pad FX in rekordbox) hit. All lit = whole track. External
+ (VOCAL/DRUMS/INST)                     inputs, mic and sampler always get full-signal FX.
+ 2 Effects display                      Effect name · AUTO/TAP · BPM (flashes last value if undetectable) · channel (SP, MIC, CH1–4, MST) ·
+                                        parameter
+ 3 BEAT ◀                               Fewer beats · SHIFT: BPM Auto mode
+ 4 BEAT ▶                               More beats · SHIFT: BPM Tap mode (tap the button)
+ 5 BEAT FX select                       Choose Beat FX (rekordbox: changes first FX on FX1 unit)
+ 6 BEAT FX CH select                    SP · MIC · 1 · 2 · 3 · 4 · MST
+ 7 LEVEL/DEPTH                          Effect parameter (dry/wet etc.)
+ 8 BEAT FX ON/OFF                       On/off (flashes when on) · SHIFT: Release FX (rekordbox only)
+ 9 BEAT FX indicators                   Lit for selected channel(s); MST lights all; flash on target while FX on
+ 10 COLOR knobs                         Per-channel Sound Color FX amount
+ 11 SOUND COLOR FX buttons              SPACE · DUB ECHO · CRUSH · PITCH · NOISE · FILTER (one at a time, same type on all channels)
+
+Source: pp.54–57. Mic and external inputs always use the unit's onboard FX, even in rekordbox/Serato.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                  10 /10
+                                                                                                                                                    30
+7 · On Jog Display
+Switch modes: rekordbox [SHIFT]+[PAGE ◀/▶]; Serato [SHIFT]+hold [PAGE]. Hold [PAGE ◀/▶] (no shift) to overlay pad-mode
+functions temporarily (pad mode, function name/parameter/colour, time). Double-press [SHIFT] toggles the Digital Marker (default:
+hidden).
+ Mode                   rekordbox elements                                                              Serato DJ Pro elements
+ Deck Info /            BPM · Master Tempo · key · key change · cue/loop/hot-cue markers ·              BPM · playing speed · loop length (blue while
+ Virtual Deck           playback position · cue scope (−4 to +16 bars, 4-bar ticks) · time              looping) · elapsed · remaining · SYNC · deck # ·
+                        (elapsed/remaining) · SYNC · artwork · deck # · Track Separation status ·       tempo range · Key Lock · key · key change ·
+                        tempo range · playing speed · On Air (white = deck 1/2, blue = 3/4) · Digital   selected deck · nearest Hot Cue · Digital Marker
+                        Marker · waveform (full/half) · MASTER · cue point                              · playback position
+ Waveform               As above + deck # for mixing deck · enlarged waveform of playing deck           Loop · speed · selected deck · position ·
+                        AND mixing deck (stacked)                                                       detailed waveform (zoom: SHIFT+rotary) ·
+                                                                                                        mixing-deck # · SYNC · key · BPM · deck # ·
+                                                                                                        range · Key Lock · mixing-deck waveform ·
+                                                                                                        Digital Marker · time
+ Mix Point Link         Playing-deck position · countdown to auto-start (flashing, vanishes at 0:00)    —
+ overlay                · mixing-deck position · link position (centred) · green status indicator
+ (rekordbox)
+ Artwork                Artwork · SYNC · deck # · On Air · Digital Marker · MASTER · cue point          Artwork · SYNC · deck # · selected deck · Digital
+ Display                                                                                                Marker
+ DJ Logo                Custom logo (set via Setting Utility) · cue point · SYNC · deck # · On Air ·    Logo · SYNC · deck # · selected deck · Digital
+ Display                Digital Marker · MASTER                                                         Marker
+
+Source: pp.33–49. LCD notes: dead/bright pixels are normal; display is dim when cold until it warms up; shade from direct sun. [p.173]
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                              11
+                                                                                                                                                      11 / 30
+8 · Performance Pad modes
+Pad numbering: top row 1–4, bottom row 5–8.
+ Mode (entry)                    rekordbox pad assignment                                   Serato DJ Pro pad assignment
+ Hot Cue (HOT CUE)               16 per track: PAGE◀ = A–H, PAGE▶ = I–P. Pad                8 per track (1–8). SHIFT+pad clears
+                                 sets/plays; SHIFT+pad clears. Pads can store 4-beat
+                                 or manual loops. Optional Gate playback while paused
+                                 (Prefs › Controller › Deck › HOT CUE)
+ Keyboard / Pitch Play           Pick a Hot Cue (or current pos.), pads play it at pitch:   Pitch Play (Pitch 'n Time pack). SHIFT+pad selects
+ (SHIFT+HOT CUE)                 1:+4 2:+5 3:+6 4:+7 / 5:0 6:+1 7:+2 8:+3 semitones         cue. Up: +4 +5 +6 +7 / 0 +1 +2 +3 · Middle: 0 +1 +2 +3
+                                 (PAGE shifts range)                                        / −4 −3 −2 −1 · Down: −3 −2 −1 0 / −7 −6 −5 −4.
+                                                                                            SHIFT+PAGE shifts by semitone
+ Saved Flip (hold HOT CUE)       —                                                          Pads 1–6 = Flip slots (7–8 unused). Press to
+                                                                                            save/recall; SHIFT+pad = start when track reaches Flip
+                                                                                            start; SHIFT+pad during Flip = cancel. Needs Serato
+                                                                                            Expansion Pack
+ Pad FX 1 (PAD FX1)              16 effects: PAGE◀ A–H, PAGE▶ I–P. Hold = on, release Effects A–H, hold to apply
+                                 = off. Release FX pad: hold another FX pad, tap
+                                 Release pad
+ Pad FX 2 / Roll (SHIFT+PAD      Effects Q–X (PAGE◀), Y–AF (PAGE▶)                          Roll: e.g. 1/8, 1/4, 1/2, 1, 2, 4, 8, 16 beats while held; slip
+ FX1)                                                                                       resumes. PAGE changes range during roll
+ Beat Jump (BEAT JUMP)           Default: 1:−1 2:+1 3:−2 4:+2 5:−4 6:+4 7:−8 8:+8 beats     1: jump back · 2: halve size · 3: double size · 4: jump
+                                 (odd = back, even = forward). PAGE changes beat/bar        forward · 5: previous track · 6: search ◀ · 7: search ▶ ·
+                                 sizes                                                      8: Censor
+ Beat Loop / Auto Loop           1:1/64 2:1/32 3:1/16 4:1/8 5:1/4 6:1/2 7:1 8:2 beats       1:1/8 2:1/4 3:1/2 4:1 5:2 6:4 7:8 8:16 beats. PAGE◀
+ (SHIFT+BEAT JUMP)               (latching; same pad exits). PAGE shifts range              halve, PAGE▶ double, SHIFT+PAGE = Loop Shift; same
+                                                                                            pad exits
+ Sampler (SAMPLER)               Pads = slots 1–8 (deck 2/4 pads = slots 9–16). PAGE        4 banks A–D × 8 slots; PAGE changes bank. Load by
+                                 changes bank. SHIFT+pad loads selected track into          drag-drop. SHIFT+pad stops slot. Behaviour per
+                                 slot / stops playing slot. Re-press = retrigger            Serato sampler mode
+ Key Shift (SHIFT+SAMPLER)       1:+4 2:+5 3:+6 4:+7 / 5:0 6:+1 7:+2 8:+3 semitones;        Same Up/Middle/Down ranges as Pitch Play (Pitch 'n
+                                 PAGE changes; SHIFT+KEY SYNC resets                        Time pack)
+
+Source: rekordbox pp.78–87; Serato pp.126–135.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                          12 /12
+                                                                                                                                                           30
+9 · Effects reference
+Beat FX (onboard list; identical in rekordbox and Serato docs)
+ Beat FX                        What it does                                                        BEAT ◀/▶ range                       LEVEL/DEPTH
+ LOW CUT ECHO                   Low-cut delay repeats decaying by beat                              Delay 1/16–16 beats                  Dry/wet balance
+ ECHO                           Delay repeats decaying by beat                                      Delay 1/16–16                        Dry/wet
+ MULTI TAP DELAY Up to 7 repeats in 1/8-beat units                                                  1/16–16                              Dry/wet
+ SPIRAL                         Reverb; pitch shifts as delay time changes                          1/16–16                              Dry/wet + feedback
+ REVERB                         Reverb                                                              Size 1–100 %                         Dry/wet
+ TRANS                          Rhythmic cut                                                        Cycle 1/16–16                        Dry/wet + cut length
+ ENIGMA JET                     Flanger with endlessly rising/falling pitch                         +1/16…+64 (rise), −64…−1/16 (fall)   Effect amount
+ FLANGER                        One-cycle flanger                                                   1/16–64 beats                        Effect amount
+ PHASER                         Phaser                                                              1/16–64                              Effect amount
+ STRETCH                        Records input, outputs time-stretched                               Retrigger 1/16–16                    Stretch beats
+ SLIP ROLL                      Records & repeats; re-records when time changes                     1/16–16                              Dry/wet
+ ROLL                           Records & repeats                                                   1/16–16                              Dry/wet
+ MOBIUS (SAW)                   Shepard-style saw tone mixed in (sounds even without input)         ±1/16…±64                            Saw volume
+ MOBIUS (TRI)                   Same with triangle wave                                             ±1/16…±64                            Triangle volume
+
+Sound Color FX (per-channel COLOR knob)
+ Effect                     Type                                              COLOR knob behaviour
+ SPACE                      Reverb                                            CCW: reverb on mid+low · CW: reverb on mid+high
+ DUB ECHO                   Decaying echo                                     CCW: echo on mids · CW: echo on highs
+ CRUSH                      Bit-crush                                         CCW: crush · CW: crush + HPF
+ PITCH                      Pitch shift                                       CCW: down · CW: up
+ NOISE                      White noise through filter                        CCW: lower cutoff · CW: raise cutoff
+ FILTER                     Filter                                            CCW: LPF down · CW: HPF up
+
+Signal placement (from signal-flow diagram): NOISE and Beat FX can sit pre-EQ; FILTER/CRUSH/PITCH sit after the 3-band EQ (pre-
+fader); DUB ECHO/SPACE and Beat FX post-fader. Mic has its own REVERB (rekordbox MIC panel — reverb only).
+Source: pp.92–101, 141–150, 174.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                              13 /13
+                                                                                                                                                               30
+10 · Settings & properties
+Three places to configure the unit: rekordbox Preferences (when connected to rekordbox — Utilities mode is locked out), Utilities
+mode on the hardware (hold BACK; for Serato/other/standalone), and the Setting Utility app.
+
+rekordbox › Preferences
+ Tab                            Setting                         Values                                                   Notes
+ Controller › Deck              Ring Brightness                 OFF, 1–3                                                 Jog ring brightness
+                                Ring Color                      ACTIVE PART Linked 1 (mixed colours) · Linked 2          Jog ring colour
+                                                                (white if >1 part) · Customize
+                                Display Brightness              1–5                                                      On Jog Display
+                                Time Mode                       Elapsed · Remaining                                      Jog time readout
+                                Slip Mode Flashing              Enable · Disable                                         Slip-capable buttons flash
+                                Slip button LED                 Light is On · Blink
+                                Vinyl Speed Adjust ›            slider                                                   Used for Slip Braking
+                                Touch/Brake
+ Controller › Mixer             CROSSFADER Curve                slow ↔ fast
+                                Fader Start                     checkbox                                                 SHIFT + fader/crossfader starts
+                                                                                                                         playback
+                                CROSSFADER Cut Lag              0.3–5.5 mm (0.1 steps), default 1.0 mm                   Approximate
+                                Booth Output                    'Don't output microphone sound to the Booth output.'     Mic → booth on unless ticked
+                                Microphone › Talkover Mode      Advanced (mids only) · Normal (full band)
+                                Microphone › Talkover Level     −6 / −12 / −18 / −24 dB
+                                Headphones                      STEREO · MONO SPLIT (+ invert L/R)                       Mono split: cue L, master R
+                                Display Brightness              1–3                                                      FX display
+ Controller › DDJ-              Master Output › Attenuator      0 / −6 / −12 dB
+ FLX10
+                                Master Output › Mono/Stereo     Monaural · Stereo
+                                Booth Output › Attenuator       0 / −6 / −12 dB
+                                Booth Output › Mono/Stereo      Monaural · Stereo
+                                Peak Limiter › Master/Booth     Enable · Disable
+                                Peak Limiter › Mic (Master) /   Enable · Disable
+                                Mic (Booth)
+                                REC OUT                         Mix the MIC audio to REC OUT
+                                Demo / Screen saver             Demo 1/5/10 min (default 10) · Screen Saver (30 min) ·
+                                                                Disable
+                                Power Management                ON · OFF                                                 Auto Off after 20 min idle
+ Controller ›                   Save destination                path
+ Recordings
+ Audio (Mac)                    Audio / Master / Headphones     DDJ-FLX10 · MASTER (+ Mac device if PC Master Out)
+                                                                · PHONES
+ Audio (Win)                    Audio / Master / Headphones     DDJ-FLX10 ASIO · MASTER (+PC device) · PHONES            PC Master Out default ON
+
+Utilities mode (hardware) — * = default
+Hold BACK → turn rotary to item → press → turn to value → press. BACK cancels/exits.
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                          14 /14
+                                                                                                                                                            30
+ Item                                         Values
+ POWER MANAGEMENT                             OFF, ON*
+ DEMO/S.SAVER                                 DISABLE, DEMO 1min, DEMO 5min, DEMO 10min*, S.SAVER (30 min)
+ TALKOVER MODE                                ADVANCED*, NORMAL
+ TALKOVER LEVEL                               −6dB, −12dB, −18dB*, −24dB
+ PHONES OUT                                   STEREO*, MONO SPLIT
+ SPLIT CUE OUTPUT                             NORMAL*, INVERT
+ MIC TO BOOTH                                 OFF, ON*
+ MIC LMT (MSTR)                               OFF, ON*
+ MIC LMT (BOOTH)                              OFF, ON*
+ MASTER ATT.                                  0dB*, −6dB, −12dB
+ MASTER OUT                                   STEREO*, MONO
+ MASTER LIMITER                               OFF, ON*
+ BOOTH ATT.                                   0dB*, −6dB, −12dB
+ BOOTH OUT                                    STEREO*, MONO
+ JOG RING BRT.                                OFF, 1, 2, 3*
+ JOG DISP. BRT.                               1, 2, 3, 4, 5*
+ DISPLAY BRT. (FX display)                    1, 2, 3*
+ CR FDR CUT LAG                               0–52, default 7
+ FACTORY RESET                                CANCEL*, RESET
+
+Setting Utility (PC/Mac app)
+ Item                              Values / purpose
+ Software                          Selects which items appear (Serato DJ Pro / Other software)
+ Slip Mode Flashing                Serato: flash related LEDs in slip
+ Slip button LED                   Serato: Light is on / Blink
+ Fader Start options               Serato/Other: ON + optional Sync on Fader Start
+ JOG RING COLOR                    Serato: MODE 1 / 2 / 3
+ Time Mode                         Serato: Elapsed / Remaining (Waveform mode)
+ Display HOT CUE INDICATOR Serato: Hot Cues on Virtual Deck mode
+ REC OUT                           Serato/Other: WITH MIC / WITHOUT MIC
+ ASIO tab (Windows)                Buffer size: larger = fewer dropouts, more latency. Quit apps using the unit first
+ About tab                         Firmware & driver versions; DJ Logo image (bmp/jpeg/png/gif) via Image Transfer Tool — quit DJ software first
+
+Source: pp.107–113, 154–164. Note: Utilities cut-lag scale (0–52 steps) and rekordbox scale (0.3–5.5 mm) describe the same range in different units.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                          15 /15
+                                                                                                                                                           30
+11 · Events, triggers & automatic behaviours
+Hardware/firmware behaviours that fire on a condition rather than a direct button meaning. Software-level MIDI events are in §13–16.
+ Event                          Trigger condition                                    Result
+ Power Management →             20 min with no control input AND no input signal ≥   Left-deck QUANTIZE lights; press it to wake
+ Off mode                       −24 dB (when ON)
+ Demo mode                      No operation for 1/5/10 min (default 10)             Any knob/button cancels
+ Screen saver                   No operation for 30 min (S.SAVER setting)            Any control cancels
+ Talkover ducking               Mic switch at TALKOVER and mic input ≥ −10 dB        Other channels attenuated by Talkover Level (default −18
+                                                                                     dB); Advanced = mids only
+ CLIP indicator                 Master near/at clipping                              Slow flash = near · fast flash = distorting
+ Peak limiter                   Master/Booth/Mic output would clip digitally (when   Limits output
+                                enabled)
+ Slip Reverse auto-cancel       8 beats of held reverse                              Returns to background position
+ Fader Start                    SHIFT + channel fader up from zero / crossfader      Play from cue; SHIFT + fader back = Back Cue. No cue =
+                                toward channel                                       play from start
+ Mix Point Link auto-start      Playing deck reaches linked mix point                Next track starts from its beginning so its mix point lands on
+                                                                                     link; countdown on jog
+ Mix Point Link cancel          Playing deck jumps before mix point (hot cue,        Link drops; MIX POINT LINK flashes — press to relink
+                                scratch…)
+ Instant Doubles                Rotary pressed twice on idle deck                    Clones playing deck & position
+ Part Instant Doubles           SHIFT + ACTIVE PART ×2                               Clone; this deck = that part only, other deck mutes it
+ BPM display flash              Beat FX can't detect BPM                             Shows last detected value, flashing
+ On Air colour                  Deck playing                                         White = decks 1/2, blue = decks 3/4
+ Track Separation               Stem separation finished (rekordbox)                 Lights on jog
+ indicator
+ Mic in PC Master Out           Always                                               Mic sound never goes to computer speakers
+ Recording without unit         rekordbox, no subscription                           Recording unavailable unless unit/Hardware Unlock device
+                                                                                     connected
+ Software switch                Changing DJ apps                                     Power-cycle the unit; never run two DJ apps at once
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                   16 /16
+                                                                                                                                                    30
+12 · Workflows
+A. First-time setup
+ 1. pioneerdj.com/support › Software & firmware updates › DDJ-FLX10 › Drivers → download. Windows: run DDJ-FLX10_#.###.exe
+    (driver + Setting Utility). Mac: install DDJ-FLX10SettingUtility.pkg only.
+ 2. Unit off & USB unplugged during install; admin rights; close all apps.
+ 3. Install rekordbox (rekordbox.com; requires Pioneer DJ account) and/or Serato DJ Pro (serato.com; no licence purchase needed
+    with this unit — ignore BUY/ACTIVATE). Don't connect the unit until installs finish.
+ 4. Cable per §2, power on. In rekordbox confirm Audio = DDJ-FLX10 (ASIO on Windows). Switch rekordbox to PERFORMANCE
+    mode if controls do nothing.
+
+B. Gain staging & first playback (deck 1)
+ 1. Input switch = A · TRIM fully CCW · EQ 12 o'clock · COLOR centre · fader down · MASTER LEVEL fully CCW · crossfader centre ·
+    assign THRU.
+ 2. Load: rotary to track, press. Press PLAY.
+ 3. Raise TRIM until channel meter hits orange on peaks.
+ 4. Fader up. Bring MASTER LEVEL up to taste (use computer volume if using PC Master Out).
+
+C. Headphone cueing
+ 1. HEADPHONES MIX centre, LEVEL fully CCW.
+ 2. Press channel CUE.
+ 3. Raise HEADPHONES LEVEL.
+
+D. Loops
+    4-beat: press 4 BEAT/EXIT (again = exit; track continues past loop).
+    Manual: LOOP IN at start, LOOP OUT at end. In loop: LOOP IN = halve, LOOP OUT = double. SHIFT+LOOP IN/OUT + jog = move
+    in/out point. SHIFT+LOOP OUT = reloop. Quantize may delay snap slightly.
+    Save loop/cue (rekordbox): pause at point → CUE → SHIFT+CUE/LOOP CALL ◀. Recall with CUE/LOOP CALL ◀/▶; delete with
+    SHIFT+CUE/LOOP CALL ▶.
+
+E. Slip techniques (SLIP on; Vinyl on for scratch)
+    Slip Scratch: scratch top of jog, release → resumes background position.
+    Slip Hot Cue: hold pad, release → resumes.
+    Slip Braking: set brake time (rekordbox Vinyl Speed Adjust › Touch/Brake; Serato BRAKING › Stop Time) → PLAY/PAUSE slows to
+    stop → PLAY resumes background position.
+    Slip Auto/Manual Loop: loop, then 4 BEAT/EXIT → resumes.
+
+F. Fader Start
+ 1. Enable (rekordbox Prefs › Mixer › Fader Start; Serato via Setting Utility).
+ 2. Set cue on paused deck.
+ 3. Channel: SHIFT + fader up = play; SHIFT + fader down = Back Cue.
+ 4. Crossfader: assign channel to A/B, park crossfader on opposite side, SHIFT + move toward channel = play.
+
+G. Mix Point Link (rekordbox) — deck 1 playing track A, track B on deck 2
+ 1. SHIFT+PAGE → Waveform mode (have cues/hot cues set at intended mix points).
+ 2. Load B to deck 2 (upper waveform = B, lower = A).
+ 3. On deck 2 call up B's start point (CUE/LOOP CALL or hot-cue pad).
+ 4. On deck 2 press MIX POINT SELECT ◀/▶ to choose A's end point (status turns green).
+ 5. Press MIX POINT LINK on deck 2 → B auto-starts so the points align. SHIFT+MIX POINT LINK at a point = Silent until there.
+    Cancel: MIX POINT LINK again or SHIFT+MIX POINT SELECT ◀.
+
+H. Stems
+
+DDJ-FLX10 Technical Reference                                                                                                   17 / 17
+                                                                                                                                     30
+    ACTIVE PART buttons mute/solo stems; SHIFT+CH CUE flips EQ knobs to Part ISO; FX PART SELECT targets FX at stems;
+    SHIFT+ACTIVE PART ×2 for Part Instant Doubles.
+
+I. Beat FX
+ 1. SHIFT+BEAT ◀ = AUTO BPM, SHIFT+BEAT ▶ = TAP.
+ 2. Pick FX (select knob) and channel (CH knob).
+ 3. BEAT ◀/▶ sets beat length.
+ 4. BEAT FX ON/OFF, ride LEVEL/DEPTH.
+
+J. Sound Color FX
+ 1. Press a SOUND COLOR FX button (flashes).
+ 2. Turn the channel's COLOR knob. Press flashing button again to cancel.
+
+K. Sampler (rekordbox)
+ 1. Show SAMPLER panel. SAMPLER mode, PAGE for bank.
+ 2. Rotary to track, SHIFT+pad to load slot.
+ 3. Pad plays; re-press retriggers; SHIFT+pad stops. Cue via SAMPLER CUE, level via SAMPLER VOL.
+
+L. Microphone
+ 1. Mic into MIC 1/2. Switch ON (lit) or TALKOVER (flashing).
+ 2. MIC LEVEL knob (full right = loud). Shape with MIC EQ.
+ 3. rekordbox MIC panel: FX knob + REVERB. Serato can't process mic.
+
+M. External sources (works without a computer)
+ 1. Multi player → LINE (CH1/2) or LINE/PHONO (CH3/4, rear switch LINE). Turntable → CH3/4 only, rear switch PHONO, ground to
+    SIGNAL GND.
+ 2. Top switch to LINE or PHONO/LINE. TRIM + fader.
+
+N. Recording
+    rekordbox: REC panel → record button; file auto-saves (destination: Prefs › Controller › Recordings). Serato: REC panel → REC.
+    Mic inclusion set by REC OUT setting.
+
+O. Two computers / B2B
+    USB A and USB B each carry a full audio/MIDI stream (PC-A / PC-B). Channel input switches pick A or B per channel, so two DJs
+    can transition on one mixer.
+
+P. Custom DJ logo
+ 1. Quit DJ software. Setting Utility › About › Setting → Image Transfer Tool.
+ 2. Open image (bmp/jpeg/png/gif) → Transfer. Delete to remove. Check in DJ Logo Display.
+
+Q. Lighting (DMX)
+    DMX cable (XLR 3-pin) to fixture. Map fixtures in rekordbox LIGHTING › FIXTURE LIBRARY; [No Assign] = unsupported fixture.
+
+R. Using another DJ app (MIDI)
+ 1. Windows: install ASIO driver first.
+ 2. Only one DJ app running. Power-cycle unit when switching apps.
+ 3. Map controls in the app using §13–16. Some controls may not be usable.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                    18 /18
+                                                                                                                                     30
+13 · MIDI map — conventions & channels
+    Status bytes: 0x9* = Note, 0xB* = Control Change. Low nibble = MIDI channel − 1.
+    Buttons: Note with velocity 0x7F = pressed, 0x00 = released. Buttons that also list a MIDI-OUT echo accept the same note back
+    to light the LED (0x7F on, 0x00 off).
+    14-bit faders/knobs: two CCs — MSB on CC x, LSB on CC x+32. Range 0x00/0x00 → 0x7F/0x7F. Knob min = fully CCW, faders
+    min = bottom (crossfader min = left).
+    Relative encoders (jog, browse): value is the delta since last message. Jog: CW = 65 (0x41) and up; CCW = 63 (0x3F) and down.
+    Browse: CW 1–30 (0x01–0x1E); CCW 127–98 (0x7F–0x62).
+    Note names in this list use the convention 60 = C4 (so 0 = C−1, 127 = G9).
+    Right-hand decks send identical data to the left decks; only the channel differs.
+    Notation in tables: "Ch" = MIDI channel 1–16; "1-4" = deck channel n; IN = controller → computer; OUT = computer → controller
+    (LED/feedback).
+ Category                                                                           MIDI ch            Hex nibble   Status
+ DECK 1 (non-pad)                                                                   1                  0            9n / Bn, n=0
+ DECK 2 (non-pad)                                                                   2                  1            n=1
+ DECK 3 (non-pad)                                                                   3                  2            n=2
+ DECK 4 (non-pad)                                                                   4                  3            n=3
+ EFFECT                                                                             5                  4            0x94 / 0xB4
+ (unused)                                                                           6                  5            —
+ BROWSER / global mixer                                                             7                  6            0x96 / 0xB6
+ DECK 1 PADS (no SHIFT)                                                             8                  7            9p, p=7
+ DECK 1 PADS (SHIFT)                                                                9                  8            p=8
+ DECK 2 PADS (no SHIFT)                                                             10                 9            p=9
+ DECK 2 PADS (SHIFT)                                                                11                 A            p=A
+ DECK 3 PADS (no SHIFT)                                                             12                 B            p=B
+ DECK 3 PADS (SHIFT)                                                                13                 C            p=C
+ DECK 4 PADS (no SHIFT)                                                             14                 D            p=D
+ DECK 4 PADS (SHIFT)                                                                15                 E            p=E
+ MIDI-OUT communication (display/LED)                                               16                 F            0x9F / 0xBF
+
+Source: DDJ-FLX10 List of MIDI Messages (E1), p.1. Use this when mapping in VirtualDJ, Traktor, djay, Mixxx, etc.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                      19 /19
+                                                                                                                                       30
+14 · MIDI map — Browser, Deck, Mixer, Effects
+'Ch 1-4' = deck channel (status 0x90–0x93 / 0xB0–0xB3). 'LED out = yes' means the same Note can be sent back on the same
+channel to drive the button LED.
+
+Browser
+ Fig    Control                                   Condition          Ch    Type        Dec   Note   Data1    LED out    Notes
+ B1     BROWSE rotate                             —                  7     CC          64    —      0x40     —          relative: CW 0x01–0x1E, CCW 0x7F–0x62
+ B1     BROWSE rotate                             +SHIFT             7     CC          100   —      0x64     —          relative
+ B1     BROWSE press (deck1 sel, left)            —                  7     NOTE        70    A#4    0x46     —
+ B1     BROWSE press (deck1)                      +SHIFT             7     NOTE        93    A6     0x5D     —
+ B1     BROWSE press (deck2 sel, right)           —                  7     NOTE        71    B4     0x47     —
+ B1     BROWSE press (deck2)                      +SHIFT             7     NOTE        109   C#8    0x6D     —
+ B1     BROWSE press (deck3 sel, left)            —                  7     NOTE        72    C5     0x48     —
+ B1     BROWSE press (deck3)                      +SHIFT             7     NOTE        94    A#6    0x5E     —
+ B1     BROWSE press (deck4 sel, right)           —                  7     NOTE        73    C#5    0x49     —
+ B1     BROWSE press (deck4)                      +SHIFT             7     NOTE        111   D#8    0x6F     —
+ B2     BACK                                      press              7     NOTE        101   F7     0x65     —
+ B2     BACK                                      +SHIFT             7     NOTE        102   F#7    0x66     —
+ B3     VIEW                                      press              7     NOTE        122   D9     0x7A     —
+ B3     VIEW                                      long press         7     NOTE        103   G7     0x67     —
+ B3     VIEW                                      +SHIFT             7     NOTE        104   G#7    0x68     —
+
+Deck (left and right decks identical; channel selects deck)
+                                                                                                                  LED
+ Fig     Control                          Condition            Ch         Type    Dec        Note Data1                      Notes
+                                                                                                                  out
+ D1      PLAY/PAUSE                       press                1-4        NOTE    11         B-1    0x0B          yes
+ D1      PLAY/PAUSE                       +SHIFT               1-4        NOTE    71         B4     0x47          yes
+ D2      CUE                              press                1-4        NOTE    12         C0     0x0C          yes
+ D2      CUE                              +SHIFT               1-4        NOTE    72         C5     0x48          yes
+ D3      JOG platter rotate (Vinyl on)    —                    1-4        CC      34         —      0x22          —          relative, 0x41+ CW / 0x3F− CCW
+ D3      JOG platter rotate (Vinyl off)   —                    1-4        CC      35         —      0x23          —          relative
+ D3      JOG platter rotate               +4 BEAT              1-4        CC      41         —      0x29          —          relative
+                                          JUMP
+ D3      JOG platter rotate               +SHIFT               1-4        CC      31         —      0x1F          —          relative
+ D3      JOG platter touch                —                    1-4        NOTE    54         F#3    0x36          —
+ D3      JOG platter touch                +SHIFT               1-4        NOTE    103        G7     0x67          —
+ D3      JOG side rotate                  —                    1-4        CC      33         —      0x21          —          relative
+ D3      JOG side rotate                  +SHIFT               1-4        CC      38         —      0x26          —          relative
+ D4      TEMPO slider                     —                    1-4        CC      0 /        —      0x00 /        —          14-bit MSB/LSB; '−' end = min
+                                                                                  32                0x20
+
+ D4      TEMPO slider                     +SHIFT               1-4        CC      5 /        —      0x05 /        —          14-bit
+                                                                                  37                0x25
+
+ D5      DECK SELECT (any press)          press                3 / 4 NOTE         114        F#8    0x72          —          sent on ch3 (left) / ch4 (right)
+ D5      DECK SELECT → DECK 1             press                1 & 3 NOTE         60         C4     0x3C          —          ch1 0x7F (deck1 on) + ch3 0x00 (deck3
+                                                                                                                             off)
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                                   20 /20
+                                                                                                                                                                     30
+                                                                               LED
+ Fig     Control                  Condition    Ch    Type   Dec   Note Data1   out   Notes
+
+ D5      DECK SELECT → DECK 3     press        1 & 3 NOTE   60    C4    0x3C   —     ch1 0x00 + ch3 0x7F
+ D5      DECK SELECT → DECK 2     press        2&    NOTE   60    C4    0x3C   —     ch2 0x7F + ch4 0x00
+                                               4
+ D5      DECK SELECT → DECK 4     press        2&    NOTE   60    C4    0x3C   —     ch2 0x00 + ch4 0x7F
+                                               4
+ D5      DECK SELECT 1/3          +SHIFT       7     NOTE   124   E9    0x7C   —
+ D5      DECK SELECT 2/4          +SHIFT       7     NOTE   125   F9    0x7D   —
+ D6      BEAT SYNC                press        1-4   NOTE   88    E6    0x58   yes
+ D6      BEAT SYNC                long press   1-4   NOTE   120   C9    0x78   yes
+ D6      BEAT SYNC                +SHIFT       1-4   NOTE   92    G#6   0x5C   yes
+ D7      TEMPO RESET              press        1-4   NOTE   65    F4    0x41   yes
+ D7      TEMPO RESET              +SHIFT       1-4   NOTE   96    C7    0x60   yes
+ D8      KEY SYNC                 press        1-4   NOTE   101   F7    0x65   yes
+ D8      KEY SYNC                 long press   1-4   NOTE   26    D1    0x1A   yes
+ D8      KEY SYNC                 +SHIFT       1-4   NOTE   100   E7    0x64   yes
+ D9      ACTIVE PART DRUMS        press        1-4   NOTE   13    C#0   0x0D   yes
+ D9      DRUMS +SHIFT ×2          +SHIFT ×2    7     NOTE   36    C2    0x24   yes   deck1=36, deck2=37, deck3=38,
+         deck1/2/3/4                                                                 deck4=39
+ D10 ACTIVE PART VOCAL            press        1-4   NOTE   14    D0    0x0E   yes
+ D10 VOCAL +SHIFT ×2 deck1–4      +SHIFT ×2    7     NOTE   40    E2    0x28   yes   40, 41, 42, 43
+ D11     ACTIVE PART INST         press        1-4   NOTE   15    D#0   0x0F   yes
+ D11     INST +SHIFT ×2 deck1–4   +SHIFT ×2    7     NOTE   44    G#2   0x2C   yes   44, 45, 46, 47
+ D12 CUE/LOOP CALL ◀              press        1-4   NOTE   81    A5    0x51   —
+ D12 CUE/LOOP CALL ◀              +SHIFT       1-4   NOTE   61    C#4   0x3D   —
+ D13 CUE/LOOP CALL ▶              press        1-4   NOTE   83    B5    0x53   —
+ D13 CUE/LOOP CALL ▶              +SHIFT       1-4   NOTE   62    D4    0x3E   —
+ D14 LOOP IN 1/2X                 press        1-4   NOTE   16    E0    0x10   yes
+ D14 LOOP IN 1/2X                 +SHIFT       1-4   NOTE   76    E5    0x4C   yes
+ D15 LOOP OUT 2X                  press        1-4   NOTE   17    F0    0x11   yes
+ D15 LOOP OUT 2X                  +SHIFT       1-4   NOTE   77    F5    0x4D   yes
+ D16 4 BEAT/EXIT                  press        1-4   NOTE   20    G#0   0x14   yes
+ D16 4 BEAT/EXIT                  +SHIFT       1-4   NOTE   80    G#5   0x50   yes
+ D17 MIX POINT SELECT ◀           press        1-4   NOTE   89    F6    0x59   —
+ D17 MIX POINT SELECT ◀           +SHIFT       1-4   NOTE   73    C#5   0x49   —
+ D18 MIX POINT SELECT ▶           press        1-4   NOTE   90    F#6   0x5A   —
+ D18 MIX POINT SELECT ▶           +SHIFT       1-4   NOTE   66    F#4   0x42   —
+ D19 MIX POINT LINK               press        1-4   NOTE   74    D5    0x4A   yes
+ D19 MIX POINT LINK               +SHIFT       1-4   NOTE   67    G4    0x43   yes
+ D20 SLIP REVERSE                 press        1-4   NOTE   21    A0    0x15   yes
+ D20 SLIP REVERSE                 +SHIFT       1-4   NOTE   56    G#3   0x38   yes
+ D21 QUANTIZE                     press        1-4   NOTE   53    F3    0x35   yes
+ D21 QUANTIZE                     +SHIFT       1-4   NOTE   104   G#7   0x68   yes
+ D22 SLIP                         press        1-4   NOTE   64    E4    0x40   yes
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                        21 /21
+                                                                                                                         30
+                                                                                              LED
+ Fig     Control                  Condition        Ch     Type     Dec         Note Data1     out   Notes
+
+ D22 SLIP                         +SHIFT           1-4    NOTE     23          B0    0x17     yes
+ D23 4 BEAT JUMP ◀                press            1-4    NOTE     94          A#6   0x5E     —
+ D23 4 BEAT JUMP ◀                long press       1-4    NOTE     112         E8    0x70     —
+ D23 4 BEAT JUMP ◀                +SHIFT           1-4    NOTE     97          C#7   0x61     —
+ D24 4 BEAT JUMP ▶                press            1-4    NOTE     95          B6    0x5F     —
+ D24 4 BEAT JUMP ▶                long press       1-4    NOTE     113         F8    0x71     —
+ D24 4 BEAT JUMP ▶                +SHIFT           1-4    NOTE     98          D7    0x62     —
+ D25 SHIFT                        press            1-4    NOTE     63          D#4   0x3F     —
+
+Mixer
+                                                                                              LED
+ Fig        Control              Condition Ch      Type   Dec            Note        Data1    out   Notes
+
+ M1         CROSSFADER           slide         7   CC     31 / 63        —           0x1F /   —     14-bit; min left, max right
+                                                                                     0x3F
+
+ M2         CH FADER             slide         1-4 CC     19 / 51        —           0x13 /   —     14-bit; min bottom
+                                                                                     0x33
+
+ M1/M2 Fader start: zero → not   +SHIFT        1-4 NOTE   102            F#7         0x66     —     PLAY message
+       zero
+ M1/M2 Fader start: zero → not   +SHIFT        1-4 NOTE   93             A6          0x5D     —     SYNC message
+       zero (sync)
+ M1/M2 Fader start: not zero →   +SHIFT        1-4 NOTE   82             A#5         0x52     —     CUE message
+       zero
+ M3         TRIM                 rotate        1-4 CC     4 / 36         —           0x04 /   —     14-bit MSB/LSB
+                                                                                     0x24
+
+ M4         EQ HI                rotate        1-4 CC     7 / 39         —           0x07 /   —     14-bit MSB/LSB
+                                                                                     0x27
+
+ M5         EQ MID               rotate        1-4 CC     11 / 43        —           0x0B /   —     14-bit MSB/LSB
+                                                                                     0x2B
+
+ M6         EQ LOW               rotate        1-4 CC     15 / 47        —           0x0F /   —     14-bit MSB/LSB
+                                                                                     0x2F
+
+ M7         CH CUE               press         1-4 NOTE   84             C6          0x54     yes
+ M7         CH CUE               +SHIFT        1-4 NOTE   57             A3          0x39     yes
+ M8         MASTER LEVEL         rotate        7   CC     8 / 40         —           0x08 /   —     14-bit MSB/LSB
+                                                                                     0x28
+
+ M9         MASTER CUE           press         7   NOTE   99             D#7         0x63     —
+ M9         MASTER CUE           +SHIFT        7   NOTE   98             D7          0x62     —
+ M10        BOOTH LEVEL          rotate        7   CC     9 / 41         —           0x09 /   —     14-bit MSB/LSB
+                                                                                     0x29
+
+ M11        CROSSFADER ASSIGN    switch        1-4 NOTE   22 / 24        A#0 / C1    0x16 /   —     Position state: A → 0x16=7F · B →
+                                                          / 29           / F1        0x18 /         0x18=7F · THRU → 0x1D=7F (others 00)
+                                                                                     0x1D
+
+ M12        HEADPHONES MIX       rotate        7   CC     12 / 44        —           0x0C /   —     14-bit MSB/LSB
+                                                                                     0x2C
+
+ M13        HEADPHONES LEVEL     rotate        7   CC     13 / 45        —           0x0D /   —     14-bit MSB/LSB
+                                                                                     0x2D
+
+ M14        MIC EQ HI            rotate        7   CC     7 / 39         —           0x07 /   —     14-bit MSB/LSB
+                                                                                     0x27
+
+ M15        MIC EQ LOW           rotate        7   CC     15 / 47        —           0x0F /   —     14-bit MSB/LSB
+                                                                                     0x2F
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                        22 /22
+                                                                                                                                          30
+                                                                                                     LED
+ Fig        Control                Condition Ch     Type   Dec          Note       Data1             out    Notes
+
+ M16        LINE/PHONO (CH3/CH4    switch   3/      NOTE   70           A#4        0x46              —      PHONO = 0x00, LINE = 0x7F
+            rear)                           4
+ M17        INPUT SELECT           switch   1-4 NOTE       85 / 86      C#6 / D6   0x55 /            —      PC-A → 0x55=7F · LINE or PHONO/LINE
+                                                           / 87         / D#6      0x56 /                   → 0x56=7F · PC-B → 0x57=7F
+                                                                                   0x57
+
+ M18        MIC OFF/ON/TALKOVER    switch   7       NOTE   106 /        A#7 / B7   0x6A /            —      OFF → 0x6A=7F · ON → 0x6B=7F ·
+                                                           107 /        / C8       0x6B /                   TALKOVER → 0x6C=7F
+                                                           108                     0x6C
+
+ M19        SAMPLER CUE            press    7       NOTE   105          A7         0x69              yes
+ M19        SAMPLER CUE            +SHIFT   7       NOTE   110          D8         0x6E              yes
+ M20        SAMPLER VOL            rotate   7       CC     3 / 35       —          0x03 /            —      14-bit MSB/LSB
+                                                                                   0x23
+
+ M21        MASTER LEVEL METER     —        —       —      —            —          —                 —      No MIDI control
+ M22        CH LEVEL METER         OUT      1-4 CC         2            —          0x02              OUT    Computer sends Bn 02 hh; used when
+                                                                                                     only   input = PC-A/PC-B
+
+Effects
+ Fig     Control                            Condition      Ch    Type    Dec           Note   Data1            LED out    Notes
+ F1      COLOR (CH1)                        rotate         7     CC      23 / 55       —      0x17 / 0x37      —          14-bit MSB/LSB
+ F1      COLOR (CH2)                        rotate         7     CC      24 / 56       —      0x18 / 0x38      —          14-bit MSB/LSB
+ F1      COLOR (CH3)                        rotate         7     CC      25 / 57       —      0x19 / 0x39      —          14-bit MSB/LSB
+ F1      COLOR (CH4)                        rotate         7     CC      26 / 58       —      0x1A / 0x3A      —          14-bit MSB/LSB
+ F2      SOUND COLOR FX SPACE               press          7     NOTE    0             C-1    0x00             yes
+ F2      SPACE                              +SHIFT         7     NOTE    8             G#-1   0x08             yes
+ F3      SOUND COLOR FX DUB ECHO            press          7     NOTE    1             C#-1   0x01             yes
+ F3      DUB ECHO                           +SHIFT         7     NOTE    9             A-1    0x09             yes
+ F4      SOUND COLOR FX CRUSH               press          7     NOTE    2             D-1    0x02             yes
+ F4      CRUSH                              +SHIFT         7     NOTE    10            A#-1   0x0A             yes
+ F5      SOUND COLOR FX PITCH               press          7     NOTE    3             D#-1   0x03             yes
+ F5      PITCH                              +SHIFT         7     NOTE    11            B-1    0x0B             yes
+ F6      SOUND COLOR FX NOISE               press          7     NOTE    4             E-1    0x04             yes
+ F6      NOISE                              +SHIFT         7     NOTE    12            C0     0x0C             yes
+ F7      SOUND COLOR FX FILTER              press          7     NOTE    5             F-1    0x05             yes
+ F7      FILTER                             +SHIFT         7     NOTE    13            C#0    0x0D             yes
+ F8      FX PART SELECT VOCAL               press          7     NOTE    27            D#1    0x1B             yes
+ F8      VOCAL                              +SHIFT         7     NOTE    30            F#1    0x1E             yes
+ F9      FX PART SELECT DRUMS               press          7     NOTE    28            E1     0x1C             yes
+ F9      DRUMS                              +SHIFT         7     NOTE    31            G1     0x1F             yes
+ F10     FX PART SELECT INST                press          7     NOTE    29            F1     0x1D             yes
+ F10     INST                               +SHIFT         7     NOTE    32            G#1    0x20             yes
+ F11     BEAT ◀                             press          5     NOTE    74            D5     0x4A             —
+ F11     BEAT ◀                             +SHIFT         5     NOTE    102           F#7    0x66             —
+ F12     BEAT ▶                             press          5     NOTE    75            D#5    0x4B             —
+ F12     BEAT ▶                             +SHIFT         5     NOTE    107           B7     0x6B             —
+ F13     BEAT FX SELECT → LOW CUT ECHO      rotate         5     NOTE    32            G#1    0x20             —          position state (see §19)
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                    23 /23
+                                                                                                                                                      30
+ Fig     Control                       Condition   Ch   Type   Dec      Note   Data1         LED out   Notes
+ F13     BEAT FX SELECT → ECHO         rotate      5    NOTE   33       A1     0x21          —         position state (see §19)
+ F13     BEAT FX SELECT → MT DELAY     rotate      5    NOTE   34       A#1    0x22          —         position state (see §19)
+ F13     BEAT FX SELECT → SPIRAL       rotate      5    NOTE   35       B1     0x23          —         position state (see §19)
+ F13     BEAT FX SELECT → REVERB       rotate      5    NOTE   36       C2     0x24          —         position state (see §19)
+ F13     BEAT FX SELECT → TRANS        rotate      5    NOTE   37       C#2    0x25          —         position state (see §19)
+ F13     BEAT FX SELECT → ENIGMA JET   rotate      5    NOTE   38       D2     0x26          —         position state (see §19)
+ F13     BEAT FX SELECT → FLANGER      rotate      5    NOTE   39       D#2    0x27          —         position state (see §19)
+ F13     BEAT FX SELECT → PHASER       rotate      5    NOTE   40       E2     0x28          —         position state (see §19)
+ F13     BEAT FX SELECT → STRETCH      rotate      5    NOTE   41       F2     0x29          —         position state (see §19)
+ F13     BEAT FX SELECT → SLIP ROLL    rotate      5    NOTE   42       F#2    0x2A          —         position state (see §19)
+ F13     BEAT FX SELECT → ROLL         rotate      5    NOTE   43       G2     0x2B          —         position state (see §19)
+ F13     BEAT FX SELECT → MOBIUS SAW   rotate      5    NOTE   44       G#2    0x2C          —         position state (see §19)
+ F13     BEAT FX SELECT → MOBIUS TRI   rotate      5    NOTE   45       A2     0x2D          —         position state (see §19)
+ F14     BEAT FX CH SELECT → CH 1      rotate      5    NOTE   16       E0     0x10          —         position state
+ F14     BEAT FX CH SELECT → CH 2      rotate      5    NOTE   17       F0     0x11          —         position state
+ F14     BEAT FX CH SELECT → CH 3      rotate      5    NOTE   18       F#0    0x12          —         position state
+ F14     BEAT FX CH SELECT → CH 4      rotate      5    NOTE   19       G0     0x13          —         position state
+ F14     BEAT FX CH SELECT → MASTER    rotate      5    NOTE   20       G#0    0x14          —         position state
+ F14     BEAT FX CH SELECT → MIC       rotate      5    NOTE   21       A0     0x15          —         position state
+ F14     BEAT FX CH SELECT → SAMPLER   rotate      5    NOTE   22       A#0    0x16          —         position state
+ F15     LEVEL/DEPTH                   rotate      5    CC     2 / 34   —      0x02 / 0x22   —         14-bit MSB/LSB
+ F16     BEAT FX ON/OFF                press       5    NOTE   71       B4     0x47          yes
+ F16     BEAT FX ON/OFF                +SHIFT      5    NOTE   67       G4     0x43          yes
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                 24 /24
+                                                                                                                                   30
+15 · MIDI map — Performance Pads & pad-mode buttons
+Each pad sends a Note whose number depends on pad mode and page: note = mode_base + (page−1)×8 + (pad−1) . The
+same numbers are used with and without SHIFT; SHIFT moves the message to the next MIDI channel. All pads echo (LED out): send
+the note back with velocity 1–127 = palette colour, 0x00 = dimmed. Pad press: 0x7F on / 0x00 off.
+
+Pad channels
+ Deck                     Ch (no SHIFT)                                Status                  Ch (+SHIFT)                                       Status
+ 1                        8                                            0x97                    9                                                 0x98
+ 2                        10                                           0x99                    11                                                0x9A
+ 3                        12                                           0x9B                    13                                                0x9C
+ 4                        14                                           0x9D                    15                                                0x9E
+
+Pad note matrix (decimal · hex · note name)
+ Pad mode            Page       Pad 1          Pad 2          Pad 3             Pad 4               Pad 5              Pad 6         Pad 7                Pad 8
+ HOT CUE                P1              0              1              2                 3                   4                  5             6                    7
+                                 0x00 · C-1     0x01 · C#-1    0x02 · D-1        0x03 · D#-1         0x04 · E-1         0x05 · F-1    0x06 · F#-1          0x07 · G-1
+
+ HOT CUE                P2              8              9              10                11              12                 13                14               15
+                                 0x08 · G#-1    0x09 · A-1     0x0A · A#-1       0x0B · B-1          0x0C · C0          0x0D · C#0     0x0E · D0           0x0F · D#0
+
+ PAD FX 1               P1              16             17             18                19              20                 21                22               23
+                                  0x10 · E0      0x11 · F0     0x12 · F#0         0x13 · G0          0x14 · G#0         0x15 · A0     0x16 · A#0           0x17 · B0
+
+ PAD FX 1               P2              24             25             26                27              28                 29                30               31
+                                  0x18 · C1     0x19 · C#1      0x1A · D1        0x1B · D#1          0x1C · E1          0x1D · F1     0x1E · F#1           0x1F · G1
+
+ BEAT JUMP              P1              32             33             34                35              36                 37                38               39
+                                 0x20 · G#1      0x21 · A1     0x22 · A#1         0x23 · B1          0x24 · C2          0x25 · C#2     0x26 · D2           0x27 · D#2
+
+ BEAT JUMP              P2              40             41             42                43              44                 45                46               47
+                                  0x28 · E2      0x29 · F2     0x2A · F#2         0x2B · G2          0x2C · G#2         0x2D · A2     0x2E · A#2           0x2F · B2
+
+ SAMPLER                P1              48             49             50                51              52                 53                54               55
+                                  0x30 · C3     0x31 · C#3      0x32 · D3        0x33 · D#3          0x34 · E3          0x35 · F3     0x36 · F#3           0x37 · G3
+
+ SAMPLER                P2              56             57             58                59              60                 61                62               63
+                                 0x38 · G#3      0x39 · A3     0x3A · A#3         0x3B · B3          0x3C · C4          0x3D · C#4     0x3E · D4           0x3F · D#4
+
+ KEYBOARD               P1              64             65             66                67              68                 69                70               71
+                                  0x40 · E4      0x41 · F4     0x42 · F#4         0x43 · G4          0x44 · G#4         0x45 · A4     0x46 · A#4           0x47 · B4
+
+ KEYBOARD               P2              72             73             74                75              76                 77                78               79
+                                  0x48 · C5     0x49 · C#5      0x4A · D5        0x4B · D#5          0x4C · E5          0x4D · F5     0x4E · F#5           0x4F · G5
+
+ PAD FX 2               P1              80             81             82                83              84                 85                86               87
+                                 0x50 · G#5      0x51 · A5     0x52 · A#5         0x53 · B5          0x54 · C6          0x55 · C#6     0x56 · D6           0x57 · D#6
+
+ PAD FX 2               P2              88             89             90                91              92                 93                94               95
+                                  0x58 · E6      0x59 · F6     0x5A · F#6         0x5B · G6          0x5C · G#6         0x5D · A6     0x5E · A#6           0x5F · B6
+
+ BEAT LOOP              P1              96             97             98                99              100                101               102              103
+                                  0x60 · C7     0x61 · C#7      0x62 · D7        0x63 · D#7          0x64 · E7          0x65 · F7     0x66 · F#7           0x67 · G7
+
+ BEAT LOOP              P2              104            105            106           107                 108                109               110              111
+                                 0x68 · G#7      0x69 · A7     0x6A · A#7         0x6B · B7          0x6C · C8          0x6D · C#8     0x6E · D8           0x6F · D#8
+
+ KEY SHIFT              P1              112            113            114           115                 116                117               118              119
+                                  0x70 · E8      0x71 · F8     0x72 · F#8         0x73 · G8          0x74 · G#8         0x75 · A8     0x76 · A#8           0x77 · B8
+
+ KEY SHIFT              P2              120            121            122           123                 124                125               126              127
+                                  0x78 · C9     0x79 · C#9      0x7A · D9        0x7B · D#9          0x7C · E9          0x7D · F9     0x7E · F#9           0x7F · G9
+
+
+
+Pad-mode buttons (deck channel 1-4, LED out yes)
+ Fig         Control                              Condition               Ch    Type           Dec              Note      Data1       LED out              Notes
+ P9          HOT CUE MODE                         press                   1-4   NOTE           27               D#1       0x1B        yes
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                                         25 /25
+                                                                                                                                                                           30
+ Fig         Control                             Condition              Ch        Type   Dec        Note   Data1         LED out   Notes
+ P9          HOT CUE MODE                        long press             1-4       NOTE   75         D#5    0x4B          yes
+ P9          HOT CUE MODE                        +SHIFT                 1-4       NOTE   105        A7     0x69          yes
+ P10         PAD FX 1 MODE                       press                  1-4       NOTE   30         F#1    0x1E          yes
+ P10         PAD FX 1 MODE                       +SHIFT                 1-4       NOTE   107        B7     0x6B          yes
+ P11         BEAT JUMP MODE                      press                  1-4       NOTE   32         G#1    0x20          yes
+ P11         BEAT JUMP MODE                      +SHIFT                 1-4       NOTE   109        C#8    0x6D          yes
+ P12         SAMPLER MODE                        press                  1-4       NOTE   34         A#1    0x22          yes
+ P12         SAMPLER MODE                        +SHIFT                 1-4       NOTE   111        D#8    0x6F          yes
+
+PAGE ◀ / PAGE ▶ (deck channel; message depends on current pad mode; LED out yes)
+ Pad mode                       PAGE ◀                     PAGE ◀ +SHIFT                      PAGE ▶               PAGE ▶ +SHIFT
+ HOT CUE                        36 (0x24)                  1 (0x01)                           44 (0x2C)            9 (0x09)
+ PAD FX 1                       37 (0x25)                  2 (0x02)                           45 (0x2D)            122 (0x7A)
+ BEAT JUMP                      38 (0x26)                  3 (0x03)                           46 (0x2E)            123 (0x7B)
+ SAMPLER                        39 (0x27)                  4 (0x04)                           47 (0x2F)            124 (0x7C)
+ KEYBOARD                       40 (0x28)                  5 (0x05)                           48 (0x30)            125 (0x7D)
+ PAD FX 2                       41 (0x29)                  6 (0x06)                           49 (0x31)            126 (0x7E)
+ BEAT LOOP                      42 (0x2A)                  7 (0x07)                           50 (0x32)            127 (0x7F)
+ KEY SHIFT                      43 (0x2B)                  8 (0x08)                           51 (0x33)            0 (0x00)
+
+PAGE ◀ selects page 1 and PAGE ▶ page 2 in every mode; switching page changes the pad notes (e.g. deck 1 Hot Cue: page 1 = 97
+00–07, page 2 = 97 08–0F).
+Source: MIDI list pp.4–6. Pad matrix verified against every row in the official list.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                              26 /26
+                                                                                                                                                30
+16 · MIDI-OUT (feedback / display control)
+Channel 16 (0x9F / 0xBF) carries display data from software to the On Jog Displays. This is what a third-party mapping must send to
+make the jog screens and rings show deck state.
+ Function                       Type                     Data 1 (MSB/LSB)                      Value / range
+ Digital Marker deck            CC (BF)                  0x10/0x30 · 0x11/0x31 · 0x12/0x32 ·   14-bit 0–359° (max MSB 0x02, LSB 0x67)
+ 1/2/3/4                                                 0x13/0x33
+ BPM deck 1–4                   CC (BF)                  0x14/0x34 · 0x15/0x35 · 0x16/0x36 ·   0.0–999.9 BPM (max 0x4E/0x0F ⇒ value ×10, 7-
+                                                         0x17/0x37                             bit split: 9999)
+ Playing speed deck 1–4         CC (BF)                  0x18/0x38 · 0x19/0x39 · 0x1A/0x3A ·   −100.0 % to +100.0 % (0x00/0x00 – 0x4E/0x0F)
+                                                         0x1B/0x3B
+ Time minutes deck 1–4          CC (BF)                  0x42 · 0x44 · 0x46 · 0x48             0–99
+ Time seconds deck 1–4          CC (BF)                  0x43 · 0x45 · 0x47 · 0x49             0–99
+ Time mode deck 1–4             NOTE (9F)                0x14 · 0x15 · 0x16 · 0x17             Elapsed 0x00 · Remaining 0x7F
+ Cue point deck 1–4             CC (BF)                  0x1C/0x3C · 0x1D/0x3D · 0x1E/0x3E ·   0–359° on the ring; hide = 0x7F/0x7F
+                                                         0x1F/0x3F
+ Key                            CC (Bn, deck ch)         0x49                                  0x00–0x18 (key index; table in source is an
+                                                                                               image — see §19)
+ Key change amount              CC (Bn)                  0x4A                                  0x01–0x0C = −12…−1 · 0x0D = 0 · 0x0E–0x19 =
+                                                                                               +1…+12
+ Key display format             NOTE (9F)                0x5B                                  Classic 0x00 · Camelot 0x7F
+ Master tempo deck 1–4          NOTE (9F)                0x20 · 0x21 · 0x22 · 0x23             OFF 0x00 · ON 0x7F
+ MASTER (Beat Sync)             NOTE (9F)                0x18 · 0x19 · 0x1A · 0x1B             OFF/ON
+ deck 1–4
+ SYNC (Beat Sync) deck          NOTE (9F)                0x1C · 0x1D · 0x1E · 0x1F             OFF/ON
+ 1–4
+ Jog ring illumination          listed as NOTE, status   0x09 · 0x0A · 0x0B · 0x0C             OFF 0x00 · WHITE 0x01
+ deck 1–4                       BF
+ Hide jog info display          NOTE (9F)                0x5D · 0x5E · 0x5F · 0x60             Show 0x00 · Hide 0x7F
+ deck 1–4
+ Channel level meter            CC (Bn)                  0x02                                  Level value (when channel input = PC-A/B)
+ Button / pad LEDs              NOTE (same ch & note     see §14–15                            0x7F on / 0x00 off; pads: colour 1–127
+                                as input)
+
+Source: MIDI list p.7.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                27 /27
+                                                                                                                                                  30
+17 · Signal flow
+Reconstructed from the signal-flow diagram (manual p.174) — text form, not the original artwork.
+
+  CH1/2:       LINE | Timecode | USB-A stream | USB-B stream
+                 → Digital Trim → [BPM detect] → COLOR FX (NOISE) / BEAT FX pre-EQ
+                 → 3-band EQ → COLOR FX (FILTER/CRUSH/PITCH) / BEAT FX pre-fader
+                 → CH CUE tap → Channel fader → COLOR FX (DUB ECHO/SPACE) / BEAT FX post-fader
+                 → Crossfader assign (A/B/THRU) → Crossfader (curve)
+  CH3/4:       same, plus PHONO input → SUBSONIC FILTER before trim
+
+  MIC 1/2: MIC IN → Low-cut → 2-band MIC EQ → On/Off → Level → [level detect → Talkover control]
+            → MIC REVERB / BEAT FX (mic) → added to Master (and Booth if MIC TO BOOTH)
+
+  MASTER bus: sum + MIC → Peak limiter → Mono/Stereo → Master ATT → MASTER OUT (1 & 2)
+                                     → [BPM detect] → BEAT FX (MST)
+  BOOTH: master → Mono/Stereo → Booth ATT → BOOTH OUT (mic optional, own limiter)
+  HEADPHONES: CH1–4 CUE + MASTER CUE → HP MIX → HP LEVEL → SPLIT CUE (Stereo/Mono split, Normal/Inverse) → PHONES
+
+  USB (each of USB A / USB B):
+    to computer: CH1–4 timecode · MASTER · REC OUT (with or without MIC) → USB Audio In 1–5
+     from computer: Audio Out 1 = deck MASTER feed (PC-A/PC-B) · Out 2 = HEADPHONE cue
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                       28 /28
+                                                                                                                         30
+18 · Troubleshooting
+ Symptom                          Fix
+ No power                         Check power cord; press rear power switch.
+ Not recognised by                Correct USB cable/port; recommended hubs only; disconnect other USB devices; (re)install driver/Setting Utility;
+ computer                         quit other apps/antivirus (go offline first); Windows: remove other ASIO drivers; check firmware version shows in
+                                  Setting Utility.
+ No/quiet/distorted sound         Check input switches, rear LINE/PHONO, TRIM, faders, crossfader, MASTER LEVEL; reseat/clean cables; raise
+                                  buffer size (Mac: in DJ app; Win: Setting Utility).
+ No mic                           MIC switch position.
+ Can't cue sampler                SAMPLER VOL; Serato: Sample Player Output Select = A.
+ rekordbox unstable               Update; quit other apps, disable Wi-Fi/antivirus/screen saver/low-power; disconnect USB devices; laptop on AC.
+ rekordbox ignores unit / no      Switch from EXPORT to PERFORMANCE mode.
+ platter
+ Wrong BPM / beatgrid             Change BPM analysis range and re-analyse, or set grid manually.
+ rekordbox dropouts               Preferences › Audio buffer size.
+ Fader Start not working          Set a cue; enable Fader Start in Prefs › Controller › Mixer.
+ Can't record in rekordbox        Without subscription, recording needs the unit (Hardware Unlock) connected.
+ DMX fixture dead                 DMX only works with rekordbox Lighting; check fixture channel, cable, and FIXTURE LIBRARY mapping ([No
+                                  Assign] = unsupported).
+ Serato unstable                  Same as rekordbox list.
+ Serato: no tracks / iTunes       Import; pick a non-empty crate; toggle Show iTunes Library in Library + Display.
+ missing
+ Serato: can't edit tags          Disable Protect Library.
+ Serato: offline player shown Reconnect USB; update Serato.
+ Serato: no BPM / Sync /          Tick Set Beat Grid / BPM in Analysis Settings and re-analyse; set grid.
+ Auto Loop / Skip
+ Indicator flashing, unit odd     Unplug power, wait, reconnect. If persistent, service.
+ Static / glitches                Power-cycle the unit.
+
+Source: pp.165–173. Cleaning: dry soft cloth only — no solvents, acids or alkalis.
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                                   29 /29
+                                                                                                                                                     30
+19 · Source notes & discrepancies
+    MASTER 2 wording. Manual p.58 says "To connect to a balanced input (RCA, etc.), use the MASTER 2 terminals." Everywhere
+    else (pp.65, 178) MASTER 2 is the unbalanced RCA output. Treat p.58 as a typo.
+    BEAT FX SELECT / CH SELECT values. The official MIDI list gives Data 2 as "ON=0x8F, 0x9F, 0x10F … 0x27F" for successive
+    positions. Those aren't valid MIDI data bytes (max 0x7F) — almost certainly a spreadsheet auto-fill error. The usable information
+    is the Data 1 note per position (0x20–0x2D for FX type, 0x10–0x16 for channel); expect 0x7F for the selected position. Confirm
+    with a MIDI monitor before relying on it.
+    Jog ring illumination is listed with type NOTE but status BF (CC). Test both 0x9F and 0xBF if implementing.
+    BPM/Speed 14-bit max is listed as MSB 0x4E, LSB 0x0F = 9999 in 7-bit-pair encoding, which is consistent with BPM ×10
+    (999.9).
+    Key value table (*3) in the MIDI list is an image, not text; the 25 key codes (0x00–0x18) couldn't be extracted. Check page 7 of
+    the original list.
+    Crossfader cut lag: rekordbox expresses it in mm (0.3–5.5, default 1.0); Utilities mode uses steps 0–52 (default 7). Same feature,
+    different units.
+    Tempo ranges differ by software: rekordbox ±6/10/16/WIDE; Serato ±8/16/50.
+    Hot Cue count differs: rekordbox 16 per track (2 pages), Serato 8.
+    Not included: diagrams/photos and the illustrated controller figure from the originals; safety and licence boilerplate (pp.180–183)
+    is summarised only.
+
+Sources
+    AlphaTheta, DDJ-FLX10 Instruction Manual, DRI1822-D — support.alphatheta.com/en-US/articles/16716272919193
+    AlphaTheta, DDJ-FLX10 List of MIDI Messages E1 — support.alphatheta.com/en-US/articles/16716711647129
+
+
+
+
+DDJ-FLX10 Technical Reference                                                                                                      30 /30
+                                                                                                                                        30
+
