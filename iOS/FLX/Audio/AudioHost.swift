@@ -23,14 +23,31 @@ final class AudioHost {
         engine.connect(source, to: engine.mainMixerNode, format: format)
     }
     deinit { engine.stop(); FLXDestroy(kernel) }
-    func start() throws {
+    // Only session negotiation runs on this queue; engine and PCM ownership stay
+    // on the main actor so loading cannot race engine startup.
+    private static let sessionQueue = DispatchQueue(label: "audio.mp.flx.session")
+    @MainActor
+    func start() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            Self.sessionQueue.async {
+                do {
+                    try Self.activateSession()
+                    continuation.resume()
+                } catch {
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+        try Task.checkCancellation()
+        engine.prepare()
+        try engine.start()
+    }
+    private static func activateSession() throws {
         let session = AVAudioSession.sharedInstance()
         try session.setCategory(.playback, mode: .default, options: [])
         try session.setPreferredSampleRate(44100)
         try session.setPreferredIOBufferDuration(0.0058)
         try session.setActive(true)
-        engine.prepare()
-        try engine.start()
     }
     func stop() { engine.stop() }
     func set(_ deck: Int, _ parameter: FLXParameter, _ value: Double) {
@@ -48,7 +65,7 @@ final class AudioHost {
         let right = decoded.buffer.format.channelCount > 1 ? channels[1] : channels[0]
         let success = FLXLoad(kernel, Int32(deck), channels[0], right,
                               Int64(decoded.buffer.frameLength), decoded.buffer.format.sampleRate)
-        if resume { try start() }
+        if resume { try engine.start() }
         guard success == 1 else { throw AudioFailure.memoryLimit }
     }
 }

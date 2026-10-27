@@ -61,6 +61,8 @@ final class DJSession: ObservableObject {
     @Published var status = "Ready · import local audio"
     @Published var selectedMaster = 0
     let audio = AudioHost()
+    private var audioStartTask: Task<Void, Never>?
+    private var pendingPlay = Set<Int>()
     private var timer: AnyCancellable?
     private var observers: [NSObjectProtocol] = []
     private let fm = FileManager.default
@@ -69,7 +71,7 @@ final class DJSession: ObservableObject {
 
     init() {
         if let data = try? Data(contentsOf: indexURL), let tracks = try? JSONDecoder().decode([LibraryTrack].self, from: data) { library = tracks }
-        do { try audio.start() } catch { self.error = error.localizedDescription }
+        startAudio()
         timer = Timer.publish(every: 1.0/30, on: .main, in: .common).autoconnect().sink { [weak self] _ in
             Task { @MainActor in self?.refresh() }
         }
@@ -89,6 +91,8 @@ final class DJSession: ObservableObject {
         }
     }
     func pauseAll() {
+        audioStartTask?.cancel(); audioStartTask = nil
+        pendingPlay.removeAll()
         for n in 0..<4 {
             audio.set(n, FLXPlaying, 0); decks[n].playing = false
             decks[n].slipOrigin = nil; decks[n].slipTime = nil
@@ -136,9 +140,34 @@ final class DJSession: ObservableObject {
     }
     func play(_ n: Int) {
         guard decks[n].track != nil else { return }
-        if !audio.running { do { try audio.start() } catch { self.error = error.localizedDescription; return } }
+        if !audio.running {
+            if pendingPlay.contains(n) { pendingPlay.remove(n) }
+            else { pendingPlay.insert(n) }
+            startAudio()
+            return
+        }
         if decks[n].position >= decks[n].duration { seek(n, 0) }
         decks[n].playing.toggle(); audio.set(n, FLXPlaying, decks[n].playing ? 1 : 0)
+    }
+    private func startAudio() {
+        guard audioStartTask == nil else { return }
+        audioStartTask = Task { [weak self] in
+            guard let self else { return }
+            do {
+                try await audio.start()
+                let requested = pendingPlay
+                pendingPlay.removeAll()
+                audioStartTask = nil
+                for deck in requested { play(deck) }
+            } catch is CancellationError {
+                // pauseAll has already cleared this request; do not restart playback.
+            } catch {
+                guard !Task.isCancelled else { return }
+                pendingPlay.removeAll()
+                audioStartTask = nil
+                self.error = error.localizedDescription
+            }
+        }
     }
     func seek(_ n: Int, _ seconds: Double) { audio.seek(n, min(max(0, seconds), decks[n].duration)) }
     func snapped(_ n: Int, _ position: Double) -> Double {
